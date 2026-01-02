@@ -53,20 +53,16 @@ public class Main {
                             .asignarSensorAParcela(scanner.next());
                     pausa();
                     break;
-                case 7://Agregar más aspersores al inventario
+                case 7: // Agregar más aspersores al inventario
                     System.out.println("----------------");
-                    System.out.print("¿Cuántos aspersores desea agregar?: ");
-                    opcion = Util.leerEntero(scanner, "  --> ");
-                    gestor.getGestorAspersores()
-                            .agregarAspersoresAlInventario(scanner.nextInt());
+                    int cantidadAsp = Util.leerEntero(scanner, "¿Cuántos aspersores desea agregar?: ");
+                    gestor.getGestorAspersores().agregarAspersoresAlInventario(cantidadAsp);
                     pausa();
                     break;
                 case 8://Agregar más sensores de humedad al inventario
                     System.out.println("----------------");
-                    System.out.print("¿Cuántos sensores desea agregar?: ");
-                    opcion = Util.leerEntero(scanner, "  --> ");
-                    gestor.getGestorSensores()
-                            .agregarSensoresAlInventario(scanner.nextInt());
+                    int cantidadSensores = Util.leerEntero(scanner, "¿Cuántos sensores desea agregar?: ");
+                    gestor.getGestorSensores().agregarSensoresAlInventario(cantidadSensores);
                     pausa();
                     break;
                 case 9://Mostrar lista de cultivos
