@@ -87,6 +87,21 @@ public class GestorParcelas {
             );
         }
 
+        // VERIFICACIÓN CORRECTA PARA TU CÓDIGO (Uno a Uno)
+        int totalParcelas = gestorGranja.getParcelas().size();
+
+        if (cantidadAspersores < totalParcelas) {
+            System.out.println("\nADVERTENCIA: Tienes " + totalParcelas + " parcelas pero solo "
+                    + cantidadAspersores + " aspersores.");
+            System.out.println("Las últimas " + (totalParcelas - cantidadAspersores) + " parcelas se quedarán sin aspersor.");
+        }
+
+        if (cantidadSensores < totalParcelas) {
+            System.out.println("\nADVERTENCIA: Tienes " + totalParcelas + " parcelas pero solo "
+                    + cantidadSensores + " sensores.");
+            System.out.println("Las últimas " + (totalParcelas - cantidadSensores) + " parcelas se quedarán sin sensor.");
+        }
+
         System.out.println("\nAsignando aspersores y sensores a parcelas...\n");
 
         int indiceAspersor = 0;
