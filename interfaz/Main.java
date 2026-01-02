@@ -81,10 +81,11 @@ public class Main {
                             .cambiarCultivoParcela(scanner);
                     pausa();
                     break;
-                case 12://Verificar humedad de las parcelas
+                case 12: // Verificar humedad y actuar
                     System.out.println("----------------");
-                    gestor.getGestorSensores()
-                            .mostrarHumedadParcelas();
+                    // Primero ejecutamos la lógica automática (medir y regar si hace falta)
+                    gestor.getGestorAspersores().evaluarYRiegoAutomatico();
+                    gestor.getGestorSensores().mostrarHumedadParcelas();
                     pausa();
                     break;
                 case 13://Mostrar lecturas de un sensor

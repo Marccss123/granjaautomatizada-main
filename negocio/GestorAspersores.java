@@ -23,7 +23,7 @@ public class GestorAspersores {
 
             if (cultivo == null) continue;
 
-            // Tomamos el primer sensor disponible
+
             if (parcela.getSensores().isEmpty()) {
                 System.out.println("⚠ " + parcela.getId()
                         + " no tiene sensor.");
@@ -41,37 +41,42 @@ public class GestorAspersores {
 
             int humedad = lectura.getPorcentajeHumedad();
 
-            // Verificamos si necesita riego
+            Aspersor aspersor = null;
+            if (!parcela.getAspersores().isEmpty()) {
+                aspersor = parcela.getAspersores().get(0);
+            }
+
             if (humedad < cultivo.getHumedadMinima()) {
 
-                if (parcela.getAspersores().isEmpty()) {
-                    System.out.println("⚠ " + parcela.getId()
-                            + " no tiene aspersor.");
-                    continue;
+
+                if (aspersor == null) {
+                    System.out.println("⚠ " + parcela.getId() + " necesita riego, pero NO tiene aspersor.");
+                } else if (!aspersor.isConectado()) {
+                    System.out.println("⚠ Aspersor desconectado en " + parcela.getId());
+                } else {
+                    if (!aspersor.isEncendido()) {
+                        aspersor.encender();
+                        System.out.println("💧 RIEGO ACTIVADO en " + parcela.getId()
+                                + " | Humedad actual: " + humedad + "%");
+                    } else {
+                        System.out.println("💧 " + parcela.getId() + " sigue regando...");
+                    }
                 }
-
-                Aspersor aspersor = parcela.getAspersores().get(0);
-
-                if (!aspersor.isConectado()) {
-                    System.out.println("⚠ Aspersor desconectado en "
-                            + parcela.getId());
-                    continue;
-                }
-
-                aspersor.encender();
-
-                System.out.println("💧 RIEGO ACTIVADO en "
-                        + parcela.getId()
-                        + " | Humedad actual: "
-                        + humedad + "%");
-
             } else {
-                System.out.println("✔ " + parcela.getId()
-                        + " humedad correcta: "
-                        + humedad + "%");
+                // CASO: HUMEDAD CORRECTA (Intenta apagar)
+                if (aspersor != null && aspersor.isEncendido()) {
+                    aspersor.apagar();
+                    System.out.println("⏹ Riego DETENIDO en " + parcela.getId()
+                            + " (Humedad recuperada: " + humedad + "%)");
+                } else {
+                    System.out.println("✔ " + parcela.getId()
+                            + " humedad correcta: " + humedad + "%");
+                }
             }
         }
     }
+
+
     // Muestra información de todos los aspersores
     public void mostrarInfoAspersores() {
 

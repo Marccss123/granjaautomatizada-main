@@ -144,13 +144,13 @@ public class GestorCultivos {
         String nombre = scanner.nextLine();
 
         System.out.print("Humedad mínima (%): ");
-        int min = scanner.nextInt();
+        int min = Util.leerEntero(scanner, "  --> ");
 
         System.out.print("Humedad máxima (%): ");
-        int max = scanner.nextInt();
+        int max = Util.leerEntero(scanner, "  --> ");
 
         System.out.print("Frecuencia de riego (horas): ");
-        int freq = scanner.nextInt();
+        int freq = Util.leerEntero(scanner, "  --> ");
 
         Cultivo nuevo = new Cultivo(nombre, min, max, freq);
         parcelaSeleccionada.setCultivo(nuevo);
