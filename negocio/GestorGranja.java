@@ -18,6 +18,10 @@ public class GestorGranja {
     private GestorSensores gestorSensores;
     private GestorCultivos gestorCultivos;
 
+    //Contadores
+    private int contadorIdAspersores = 0;
+    private int contadorIdSensores = 0;
+
     public GestorGranja() {
         parcelas = new ArrayList<>();
         aspersoresInventario = new ArrayList<>();
@@ -27,6 +31,16 @@ public class GestorGranja {
         gestorAspersores = new GestorAspersores(this);
         gestorSensores = new GestorSensores(this);
         gestorCultivos = new GestorCultivos(this);
+    }
+
+    public int getSiguienteIdAspersor() {
+        contadorIdAspersores++;
+        return contadorIdAspersores;
+    }
+
+    public int getSiguienteIdSensor() {
+        contadorIdSensores++;
+        return contadorIdSensores;
     }
 
     // Getters para que los gestores accedan a las listas

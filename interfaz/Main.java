@@ -83,7 +83,6 @@ public class Main {
                     break;
                 case 12: // Verificar humedad y actuar
                     System.out.println("----------------");
-                    // Primero ejecutamos la lógica automática (medir y regar si hace falta)
                     gestor.getGestorAspersores().evaluarYRiegoAutomatico();
                     gestor.getGestorSensores().mostrarHumedadParcelas();
                     pausa();
