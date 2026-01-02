@@ -30,8 +30,7 @@ public class GestorCultivos {
             System.out.println("\nParcela: " + parcela.getId()
                     + " (" + parcela.getMetrosCuadrados() + " m²)");
 
-            System.out.print("¿Desea sembrar un cultivo aquí? (1=Sí / 0=No): ");
-            int opcion = Util.leerEntero(scanner, "  --> ");
+            int opcion = Util.leerEntero(scanner, "¿Desea sembrar un cultivo aquí? (1=Sí / 0=No): ");
 
 
             if (opcion == 1) {
@@ -39,14 +38,9 @@ public class GestorCultivos {
                 System.out.print("Nombre del cultivo: ");
                 String nombre = scanner.nextLine();
 
-                System.out.print("Humedad mínima requerida (%): ");
-                int humedadMin = Util.leerEntero(scanner, "  --> ");
-
-                System.out.print("Humedad máxima permitida (%): ");
-                int humedadMax = Util.leerEntero(scanner, "  --> ");
-
-                System.out.print("Cada cuántas horas se riega: ");
-                int frecuencia = Util.leerEntero(scanner, "  --> ");
+                int humedadMin = Util.leerEntero(scanner, "Humedad mínima requerida (%): ");
+                int humedadMax = Util.leerEntero(scanner, "Humedad máxima permitida (%): ");
+                int frecuencia = Util.leerEntero(scanner, "Cada cuántas horas se riega: ");
 
 
                 Cultivo cultivo = new Cultivo(
@@ -143,14 +137,9 @@ public class GestorCultivos {
         System.out.print("Nombre del cultivo: ");
         String nombre = scanner.nextLine();
 
-        System.out.print("Humedad mínima (%): ");
-        int min = Util.leerEntero(scanner, "  --> ");
-
-        System.out.print("Humedad máxima (%): ");
-        int max = Util.leerEntero(scanner, "  --> ");
-
-        System.out.print("Frecuencia de riego (horas): ");
-        int freq = Util.leerEntero(scanner, "  --> ");
+        int min = Util.leerEntero(scanner, "Humedad mínima (%): ");
+        int max = Util.leerEntero(scanner, "Humedad máxima (%): ");
+        int freq = Util.leerEntero(scanner, "Frecuencia de riego (horas): ");
 
         Cultivo nuevo = new Cultivo(nombre, min, max, freq);
         parcelaSeleccionada.setCultivo(nuevo);

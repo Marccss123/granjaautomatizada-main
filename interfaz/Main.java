@@ -16,7 +16,7 @@ public class Main {
         do {
 
             Util.mostrarMenuPrincipal();
-            opcion = Util.leerEntero(scanner, "Seleccione una opción: ");
+            opcion = Util.leerEntero(scanner, "");
 
             switch (opcion) {
                 case 1://Añadir más terreno

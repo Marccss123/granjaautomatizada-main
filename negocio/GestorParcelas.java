@@ -18,8 +18,8 @@ public class GestorParcelas {
     // Método que crea parcelas a partir del terreno ingresado
     public void crearParcelasDesdeTerreno(Scanner scanner) {
 
-        System.out.print("Ingrese la cantidad total de terreno en m²: ");
-        double terrenoTotal = Util.leerEntero(scanner, "  --> ");
+
+        double terrenoTotal = Util.leerEntero(scanner, "Ingrese la cantidad total de terreno en m²: ");
 
         double terrenoRestante = terrenoTotal;
 
@@ -62,11 +62,9 @@ public class GestorParcelas {
 
     private void asignarAspersoresYSensores(Scanner scanner) {
 
-        System.out.print("\nIngrese la cantidad de aspersores disponibles: ");
-        int cantidadAspersores = Util.leerEntero(scanner, "  --> ");
 
-        System.out.print("Ingrese la cantidad de sensores de humedad disponibles: ");
-        int cantidadSensores = Util.leerEntero(scanner, "  --> ");
+        int cantidadAspersores = Util.leerEntero(scanner, "\nIngrese la cantidad de aspersores disponibles: ");
+        int cantidadSensores = Util.leerEntero(scanner, "Ingrese la cantidad de sensores de humedad disponibles: ");
 
         // Crear aspersores en inventario
         for (int i = 0; i < cantidadAspersores; i++) {
