@@ -93,7 +93,7 @@ public class GestorCultivos {
         }
 
         if (!hayCultivos) {
-            System.out.println("⚠ No hay cultivos registrados.");
+            System.out.println("No hay cultivos registrados.");
         }
     }
     // Cambia el cultivo de una parcela
@@ -113,7 +113,7 @@ public class GestorCultivos {
         }
 
         if (!hayParcelasConCultivo) {
-            System.out.println("⚠ No hay parcelas con cultivo.");
+            System.out.println("No hay parcelas con cultivo.");
             return;
         }
 

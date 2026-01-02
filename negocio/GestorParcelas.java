@@ -69,16 +69,21 @@ public class GestorParcelas {
         int cantidadSensores = Util.leerEntero(scanner, "  --> ");
 
         // Crear aspersores en inventario
+        int cantidadActualAspersores = gestorGranja.getAspersoresInventario().size();
+
         for (int i = 1; i <= cantidadAspersores; i++) {
-            String id = Util.generarId("ASPERSOR", i);
+
+            String id = Util.generarId("ASPERSOR", cantidadActualAspersores + i);
             gestorGranja.getAspersoresInventario().add(
                     new granjaautomatizada.modelo.Aspersor(id)
             );
         }
 
         // Crear sensores en inventario
+        int cantidadActualSensores = gestorGranja.getSensoresInventario().size(); // MIRA CUÁNTOS HAY ANTES
+
         for (int i = 1; i <= cantidadSensores; i++) {
-            String id = Util.generarId("SENSOR", i);
+            String id = Util.generarId("SENSOR", cantidadActualSensores + i);
             gestorGranja.getSensoresInventario().add(
                     new granjaautomatizada.modelo.SensorHumedad(id)
             );
