@@ -31,8 +31,8 @@ public class GestorCultivos {
                     + " (" + parcela.getMetrosCuadrados() + " m²)");
 
             System.out.print("¿Desea sembrar un cultivo aquí? (1=Sí / 0=No): ");
-            int opcion = scanner.nextInt();
-            scanner.nextLine(); // limpiar buffer
+            int opcion = Util.leerEntero(scanner, "  --> ");
+
 
             if (opcion == 1) {
 

@@ -44,7 +44,7 @@ public class GestorParcelas {
             // Se agrega la parcela al sistema
             gestorGranja.getParcelas().add(parcela);
 
-            System.out.println("✔ Parcela creada: " + idParcela +
+            System.out.println("Parcela creada: " + idParcela +
                     " | Tamaño: " + tamanioParcela + " m²");
 
             terrenoRestante -= tamanioParcela;
@@ -63,7 +63,7 @@ public class GestorParcelas {
     private void asignarAspersoresYSensores(Scanner scanner) {
 
         System.out.print("\nIngrese la cantidad de aspersores disponibles: ");
-        int cantidadAspersores = scanner.nextInt();
+        int cantidadAspersores = Util.leerEntero(scanner, "  --> ");
 
         System.out.print("Ingrese la cantidad de sensores de humedad disponibles: ");
         int cantidadSensores = Util.leerEntero(scanner, "  --> ");
@@ -100,7 +100,7 @@ public class GestorParcelas {
                 parcela.getAspersores().add(aspersor);
                 indiceAspersor++;
             } else {
-                System.out.println("⚠ La " + parcela.getId()
+                System.out.println("La " + parcela.getId()
                         + " NO tiene aspersor asignado.");
             }
 
@@ -112,7 +112,7 @@ public class GestorParcelas {
                 parcela.getSensores().add(sensor);
                 indiceSensor++;
             } else {
-                System.out.println("⚠ La " + parcela.getId()
+                System.out.println("La " + parcela.getId()
                         + " NO tiene sensor asignado.");
             }
         }
@@ -147,7 +147,7 @@ public class GestorParcelas {
     public void eliminarParcela(Scanner scanner) {
 
         if (gestorGranja.getParcelas().isEmpty()) {
-            System.out.println("⚠ No hay parcelas para eliminar.");
+            System.out.println("No hay parcelas para eliminar.");
             return;
         }
 
@@ -170,7 +170,7 @@ public class GestorParcelas {
         }
 
         if (parcelaEliminar == null) {
-            System.out.println("⚠ Parcela no encontrada.");
+            System.out.println("Parcela no encontrada.");
             return;
         }
 
@@ -178,7 +178,7 @@ public class GestorParcelas {
         String confirmacion = scanner.next();
 
         if (!confirmacion.equals(id)) {
-            System.out.println("❌ Confirmación incorrecta. Operación cancelada.");
+            System.out.println("Confirmación incorrecta. Operación cancelada.");
             return;
         }
 
