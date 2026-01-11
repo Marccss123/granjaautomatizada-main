@@ -84,7 +84,7 @@ public class Util {
                 datoValido = true;
 
             } catch (GranjaException e) {
-                System.out.println("⚠ Error: " + e.getMessage());
+                System.out.println("Error: " + e.getMessage());
                 System.out.println("  -->Intente nuevamente.");
             }
         } while (!datoValido);

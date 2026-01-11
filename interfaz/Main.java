@@ -138,8 +138,8 @@ public class Main {
                     System.out.println("Opción inválida.");
             }
             } catch (Exception e) {
-                System.out.println("\n⚠ ¡Ups! Ocurrió un error inesperado: " + e.getMessage());
-                System.out.println("🔄 Volviendo al menú principal...");
+                System.out.println("\n¡Ups! Ocurrió un error inesperado: " + e.getMessage());
+                System.out.println("Volviendo al menú principal...");
                 opcion = 0;
             }
         } while (opcion != 20);

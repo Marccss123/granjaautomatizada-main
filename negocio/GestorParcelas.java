@@ -66,13 +66,13 @@ public class GestorParcelas {
         int cantidadAspersores;
         do {
             cantidadAspersores=Util.leerEntero(scanner, "\nIngrese la cantidad de aspersores disponibles (Positivo)");
-            if (cantidadAspersores < 0) System.out.println("⚠ Error: No puedes ingresar números negativos.");
+            if (cantidadAspersores < 0) System.out.println(" Error: No puedes ingresar números negativos.");
         } while (cantidadAspersores < 0);
 
         int cantidadSensores;
         do {
             cantidadSensores = Util.leerEntero(scanner, "Ingrese la cantidad de sensores disponibles (Positivo)");
-            if (cantidadSensores < 0) System.out.println("⚠ Error: No puedes ingresar números negativos.");
+            if (cantidadSensores < 0) System.out.println(" Error: No puedes ingresar números negativos.");
         } while (cantidadSensores < 0);
 
         // Crear aspersores en inventario
@@ -223,7 +223,7 @@ public class GestorParcelas {
         // Eliminar parcela
         gestorGranja.getParcelas().remove(parcelaEliminar);
 
-        System.out.println("✔ Parcela " + id + " eliminada correctamente.");
+        System.out.println(" Parcela " + id + " eliminada correctamente.");
     }
 
 }

@@ -36,7 +36,7 @@ public class GestorCultivos {
                 opcion = Util.leerEntero(scanner, "¿Desea sembrar un cultivo aquí? (1=Sí / 0=No): ");
 
                 if (opcion != 0 && opcion != 1) {
-                    System.out.println("⚠ Opción inválida. Por favor ingrese solo 1 o 0.");
+                    System.out.println(" Opción inválida. Por favor ingrese solo 1 o 0.");
                 }
             } while (opcion != 0 && opcion !=1);
 
@@ -63,11 +63,11 @@ public class GestorCultivos {
                 // Guardamos cultivo en la lista general
                 cultivosRegistrados.add(cultivo);
 
-                System.out.println("✔ Cultivo " + nombre
+                System.out.println(" Cultivo " + nombre
                         + " registrado en " + parcela.getId());
 
             } else {
-                System.out.println("⚠ Parcela sin cultivo.");
+                System.out.println(" Parcela sin cultivo.");
             }
         }
     }
@@ -132,7 +132,7 @@ public class GestorCultivos {
         }
 
         if (parcelaSeleccionada == null || parcelaSeleccionada.getCultivo() == null) {
-            System.out.println("⚠ Parcela inválida o sin cultivo.");
+            System.out.println(" Parcela inválida o sin cultivo.");
             return;
         }
 
@@ -151,7 +151,7 @@ public class GestorCultivos {
         Cultivo nuevo = new Cultivo(nombre, min, max, freq);
         parcelaSeleccionada.setCultivo(nuevo);
 
-        System.out.println("✔ Cultivo cambiado correctamente en "
+        System.out.println(" Cultivo cambiado correctamente en "
                 + parcelaSeleccionada.getId());
     }
 
