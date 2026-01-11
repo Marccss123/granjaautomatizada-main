@@ -14,6 +14,7 @@ public class Main {
         int opcion;
 
         do {
+            try{
 
             Util.mostrarMenuPrincipal();
             opcion = Util.leerEntero(scanner, "");
@@ -135,6 +136,11 @@ public class Main {
                 default:
                     System.out.println("----------------");
                     System.out.println("Opción inválida.");
+            }
+            } catch (Exception e) {
+                System.out.println("\n⚠ ¡Ups! Ocurrió un error inesperado: " + e.getMessage());
+                System.out.println("🔄 Volviendo al menú principal...");
+                opcion = 0;
             }
         } while (opcion != 20);
 
