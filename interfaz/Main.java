@@ -132,12 +132,10 @@ public class Main {
                 case 20://Salir
                     System.out.println("-----------------");
                     System.out.println("Saliendo del sistema...");
-                    System.exit(0);
                 default:
                     System.out.println("----------------");
                     System.out.println("Opción inválida.");
             }
-
         } while (opcion != 20);
 
         scanner.close();
