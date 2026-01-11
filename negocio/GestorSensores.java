@@ -66,11 +66,9 @@ public class GestorSensores {
     }
     // Agregar nuevos sensores al inventario
     public void agregarSensoresAlInventario(int cantidad) {
-
-        int inicio = gestorGranja.getSensoresInventario().size() + 1;
-
         for (int i = 0; i < cantidad; i++) {
-            String id = granjaautomatizada.utilitario.Util.generarId("SENSOR", inicio + i);
+            int siguienteNum = gestorGranja.getSiguienteIdSensor();
+            String id = granjaautomatizada.utilitario.Util.generarId("SENSOR", siguienteNum);
             gestorGranja.getSensoresInventario().add(new SensorHumedad(id));
         }
 

@@ -112,16 +112,14 @@ public class GestorAspersores {
     }
     // Agregar nuevos aspersores al inventario
     public void agregarAspersoresAlInventario(int cantidad) {
-
-        int inicio = gestorGranja.getAspersoresInventario().size() + 1;
-
         for (int i = 0; i < cantidad; i++) {
-            String id = granjaautomatizada.utilitario.Util.generarId("ASPERSOR", inicio + i);
+            int siguienteNum=gestorGranja.getSiguienteIdAspersor();
+            String id = granjaautomatizada.utilitario.Util.generarId("ASPERSOR", siguienteNum);
             gestorGranja.getAspersoresInventario().add(new Aspersor(id));
         }
-
         System.out.println("✔ Se agregaron " + cantidad + " aspersores al inventario.");
     }
+
     // Asignar un aspersor del inventario a una parcela
     public void asignarAspersorAParcela(String idParcela) {
 
