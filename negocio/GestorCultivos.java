@@ -30,8 +30,15 @@ public class GestorCultivos {
             System.out.println("\nParcela: " + parcela.getId()
                     + " (" + parcela.getMetrosCuadrados() + " m²)");
 
-            int opcion = Util.leerEntero(scanner, "¿Desea sembrar un cultivo aquí? (1=Sí / 0=No): ");
+            //Validacion
+            int opcion;
+            do {
+                opcion = Util.leerEntero(scanner, "¿Desea sembrar un cultivo aquí? (1=Sí / 0=No): ");
 
+                if (opcion != 0 && opcion != 1) {
+                    System.out.println("⚠ Opción inválida. Por favor ingrese solo 1 o 0.");
+                }
+            } while (opcion != 0 && opcion !=1);
 
             if (opcion == 1) {
 

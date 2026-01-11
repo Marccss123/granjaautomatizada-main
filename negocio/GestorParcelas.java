@@ -19,7 +19,7 @@ public class GestorParcelas {
     public void crearParcelasDesdeTerreno(Scanner scanner) {
 
 
-        double terrenoTotal = Util.leerEntero(scanner, "Ingrese la cantidad total de terreno en m²: ");
+        double terrenoTotal = Util.leerEnteroPositivo(scanner, "Ingrese la cantidad total de terreno en m²: ");
 
         double terrenoRestante = terrenoTotal;
 

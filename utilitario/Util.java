@@ -69,4 +69,26 @@ public class Util {
         scanner.nextLine();
         return valor;
     }
+
+    public static int leerEnteroPositivo(Scanner scanner, String mensaje) {
+        int numero = 0;
+        boolean datoValido = false;
+
+        do {
+            try {
+                numero = leerEntero(scanner, mensaje);
+
+                if (numero <= 0) {
+                    throw new GranjaException("El valor debe ser mayor a 0.");
+                }
+                datoValido = true;
+
+            } catch (GranjaException e) {
+                System.out.println("⚠ Error: " + e.getMessage());
+                System.out.println("  -->Intente nuevamente.");
+            }
+        } while (!datoValido);
+
+        return numero;
+    }
 }
