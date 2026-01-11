@@ -64,7 +64,16 @@ public class GestorParcelas {
 
 
         int cantidadAspersores = Util.leerEntero(scanner, "\nIngrese la cantidad de aspersores disponibles: ");
+        do {
+            cantidadAspersores = Util.leerEntero(scanner, "\nIngrese la cantidad de aspersores disponibles (Positivo)");
+            if (cantidadAspersores < 0) System.out.println("⚠ Error: No puedes ingresar números negativos.");
+        } while (cantidadAspersores < 0);
+
         int cantidadSensores = Util.leerEntero(scanner, "Ingrese la cantidad de sensores de humedad disponibles: ");
+        do {
+            cantidadSensores = Util.leerEntero(scanner, "Ingrese la cantidad de sensores disponibles (Positivo)");
+            if (cantidadSensores < 0) System.out.println("⚠ Error: No puedes ingresar números negativos.");
+        } while (cantidadSensores < 0);
 
         // Crear aspersores en inventario
         for (int i = 0; i < cantidadAspersores; i++) {
