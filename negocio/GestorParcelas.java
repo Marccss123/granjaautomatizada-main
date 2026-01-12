@@ -1,6 +1,7 @@
 package granjaautomatizada.negocio;
 
 import granjaautomatizada.modelo.Parcela;
+import granjaautomatizada.utilitario.GranjaException;
 import granjaautomatizada.utilitario.Util;
 
 import java.util.Scanner;
@@ -171,11 +172,10 @@ public class GestorParcelas {
         }
     }
     // Elimina una parcela del sistema
-    public void eliminarParcela(Scanner scanner) {
+    public void eliminarParcela(Scanner scanner) throws GranjaException {
 
         if (gestorGranja.getParcelas().isEmpty()) {
-            System.out.println("No hay parcelas para eliminar.");
-            return;
+            throw new GranjaException("No hay parcelas registradas en el sistema.");
         }
 
         System.out.println("\n=== PARCELAS DISPONIBLES ===");
@@ -197,16 +197,14 @@ public class GestorParcelas {
         }
 
         if (parcelaEliminar == null) {
-            System.out.println("Parcela no encontrada.");
-            return;
+            throw new GranjaException("La parcela con ID '" + id + "' no existe.");
         }
 
         System.out.print("Ingrese nuevamente el ID para confirmar: ");
         String confirmacion = scanner.next();
 
-        if (!confirmacion.equals(id)) {
-            System.out.println("Confirmación incorrecta. Operación cancelada.");
-            return;
+        if (!confirmacion.equalsIgnoreCase(id)) {
+            throw new GranjaException("Confirmación incorrecta. Se canceló la eliminación.");
         }
 
         // Liberar aspersores

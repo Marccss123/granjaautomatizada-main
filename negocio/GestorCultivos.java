@@ -2,6 +2,7 @@ package granjaautomatizada.negocio;
 
 import granjaautomatizada.modelo.Cultivo;
 import granjaautomatizada.modelo.Parcela;
+import granjaautomatizada.utilitario.GranjaException;
 import granjaautomatizada.utilitario.Util;
 
 import java.util.ArrayList;
@@ -98,7 +99,7 @@ public class GestorCultivos {
         }
     }
     // Cambia el cultivo de una parcela
-    public void cambiarCultivoParcela(Scanner scanner) {
+    public void cambiarCultivoParcela(Scanner scanner) throws GranjaException {
 
         System.out.println("\n=== CAMBIAR CULTIVO DE PARCELA ===");
 
@@ -131,9 +132,11 @@ public class GestorCultivos {
             }
         }
 
-        if (parcelaSeleccionada == null || parcelaSeleccionada.getCultivo() == null) {
-            System.out.println(" Parcela inválida o sin cultivo.");
-            return;
+        if (parcelaSeleccionada == null) {
+            throw new GranjaException("La parcela ingresada no existe.");
+        }
+        if (parcelaSeleccionada.getCultivo() == null) {
+            throw new GranjaException("Esta parcela NO tiene un cultivo registrado. Use la opción de 'Registrar' primero.");
         }
 
         // Eliminamos cultivo anterior

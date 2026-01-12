@@ -2,6 +2,7 @@ package granjaautomatizada.interfaz;
 
 import java.util.Scanner;
 import granjaautomatizada.negocio.GestorGranja;
+import granjaautomatizada.utilitario.GranjaException;
 import granjaautomatizada.utilitario.Util;
 
 public class Main {
@@ -11,7 +12,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         GestorGranja gestor = new GestorGranja();
 
-        int opcion;
+        int opcion = 0;
 
         do {
             try{
@@ -137,9 +138,12 @@ public class Main {
                     System.out.println("----------------");
                     System.out.println("Opción inválida.");
             }
+
+            } catch (GranjaException ge) {
+                System.out.println("\n⚠ AVISO: " + ge.getMessage());
             } catch (Exception e) {
-                System.out.println("\n¡Ups! Ocurrió un error inesperado: " + e.getMessage());
-                System.out.println("Volviendo al menú principal...");
+                System.out.println("\n☠️ ERROR CRÍTICO: " + e.getMessage());
+                e.printStackTrace();
                 opcion = 0;
             }
         } while (opcion != 20);

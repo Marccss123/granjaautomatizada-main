@@ -2,6 +2,7 @@ package granjaautomatizada.negocio;
 
 
 import granjaautomatizada.modelo.*;
+import granjaautomatizada.utilitario.GranjaException;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -121,11 +122,11 @@ public class GestorAspersores {
     }
 
     // Asignar un aspersor del inventario a una parcela
-    public void asignarAspersorAParcela(String idParcela) {
+    public void asignarAspersorAParcela(String idParcela) throws GranjaException {
 
-        Aspersor disponible = null;
+        granjaautomatizada.modelo.Aspersor disponible = null;
 
-        for (Aspersor a : gestorGranja.getAspersoresInventario()) {
+        for (granjaautomatizada.modelo.Aspersor a : gestorGranja.getAspersoresInventario()) {
             if (a.getParcela() == null) {
                 disponible = a;
                 break;
@@ -133,21 +134,27 @@ public class GestorAspersores {
         }
 
         if (disponible == null) {
-            System.out.println("No hay aspersores disponibles en el inventario.");
-            return;
+            throw new GranjaException("No quedan aspersores libres en el inventario. (Use la opción 7)");
         }
 
+        granjaautomatizada.modelo.Parcela parcelaDestino = null;
+
         for (granjaautomatizada.modelo.Parcela parcela : gestorGranja.getParcelas()) {
-            if (parcela.getId().equals(idParcela)) {
-                disponible.setParcela(parcela);
-                parcela.getAspersores().add(disponible);
-                System.out.println("Aspersor " + disponible.getId()
-                        + " asignado a " + parcela.getId());
-                return;
+            if (parcela.getId().equalsIgnoreCase(idParcela)) {
+                parcelaDestino = parcela;
+                break;
             }
         }
 
-        System.out.println("Parcela no encontrada.");
+        if (parcelaDestino == null) {
+            throw new GranjaException("No se encontró la parcela con ID: " + idParcela);
+        }
+
+        disponible.setParcela(parcelaDestino);
+        parcelaDestino.getAspersores().add(disponible);
+
+        System.out.println("Aspersor " + disponible.getId()
+                + " asignado a " + parcelaDestino.getId());
     }
     // Muestra historial de activaciones de un aspersor
     public void mostrarHistorialAspersor(Scanner scanner) {
